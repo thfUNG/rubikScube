@@ -3,5 +3,5 @@ into center, north, east, south, west...(NE, SE, SW, NW), and using char to repr
 
 
 TODO: 
-    1.  complete the whole commend process at rc_CMD.h
+    1.  complete the whole commend process at rc_CMD.h <DONE>
     2.  transform this rubic's cube code into a encoding method , simulat to the idea of enigma

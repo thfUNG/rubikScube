@@ -42,46 +42,31 @@ class cube{
         }
 
         void printCube_v1(){
-            a.print_face_WHOLE('\t', '\n');
+            putchar('\n');
+                a.print_face_WHOLE('\t', '\n');
+            putchar('\n');
+                b.print_face_N('\0', '\t');
+                c.print_face_N('\0', '\t');
+                d.print_face_N('\0', '\n');
 
-            b.print_face_N('\0', '\t');
-            c.print_face_N('\0', '\t');
-            d.print_face_N('\0', '\n');
+                b.print_face_WE('\0', '\t');
+                c.print_face_WE('\0', '\t');
+                d.print_face_WE('\0', '\n');
 
-            b.print_face_WE('\0', '\t');
-            c.print_face_WE('\0', '\t');
-            d.print_face_WE('\0', '\n');
-
-            b.print_face_S('\0', '\t');
-            c.print_face_S('\0', '\t');
-            d.print_face_S('\0', '\n');
-
-            e.print_face_WHOLE('\t', '\n');
-            f.print_face_WHOLE('\t', '\n');
+                b.print_face_S('\0', '\t');  
+                c.print_face_S('\0', '\t');
+                d.print_face_S('\0', '\n');
+            putchar('\n');
+                e.print_face_WHOLE('\t', '\n');
+            putchar('\n');
+                f.print_face_WHOLE('\t', '\n');
         }
-        void printCube_v2(){
-            a.print_face_WHOLE('\t', '\n');
-
-            b.print_face_N('\0', '\t');
-            c.print_face_N('\0', '\t');
-            d.print_face_N('\0', '\t');
-            f.print_face_N('\0', '\n');
-
-            b.print_face_WE('\0', '\t');
-            c.print_face_WE('\0', '\t');
-            d.print_face_WE('\0', '\t');
-            f.print_face_WE('\0', '\n');
-
-
-            b.print_face_S('\0', '\t');
-            c.print_face_S('\0', '\t');
-            d.print_face_S('\0', '\t');
-            f.print_face_S('\0', '\n');
-
-            e.print_face_WHOLE('\t', '\n');
-        }
-        //      v1
+        // void printCube_v2(){
+        //  
+        // }
+        // void printCube_v3(){}
         void swap_acef_at_b_side(){
+            b.swap_clkwise();
             char temp_NW, temp_W, temp_SW;
 
             char next_NW, next_W, next_SW;
@@ -111,6 +96,7 @@ class cube{
                     // printCube_v1();
         }
         void swap_acef_at_d_side(){
+            d.swap_anti_clkwise();
             char temp_NE, temp_E, temp_SE;
 
             char next_NE, next_E, next_SE;
@@ -141,6 +127,7 @@ class cube{
         }
         //      v2
         void swap_bcdf_at_a_side(){
+            a.swap_anti_clkwise();
             char temp_SW, temp_S, temp_SE;
 
             char next_NW, next_N, next_NE;
@@ -163,6 +150,7 @@ class cube{
             b.set_N_side(temp_SE, temp_S, temp_SW);
         }
         void swap_bcdf_at_e_side(){
+            e.swap_clkwise();
             char temp_NW, temp_N, temp_NE;
 
             char next_SW, next_S, next_SE;
@@ -184,7 +172,9 @@ class cube{
             //b = temp
             b.set_S_side(temp_NE, temp_N, temp_NW);
         }
+        //      v3
         void swap_adeb_at_c_side(){
+            c.swap_clkwise();
             char temp_1, temp_2, temp_3;
             char next_1, next_2, next_3;
 
@@ -206,8 +196,8 @@ class cube{
 
             a.set_S_side(temp_3, temp_2, temp_1);
         }
-
         void swap_adeb_at_f_side(){
+            f.swap_anti_clkwise();
             char temp_1, temp_2, temp_3;
             char next_1, next_2, next_3;
             b.get_W_side(&temp_1, &temp_2, &temp_3);//nw,w,sw

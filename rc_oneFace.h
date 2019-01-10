@@ -1,5 +1,5 @@
 #include <cstdio>
-
+#include <cstdlib>
 //eswn
 
 class one_face{
@@ -36,19 +36,32 @@ class one_face{
             ...........
     */
         void swap_anti_clkwise(){
-            char temp_NW = NW;
+            char temp = NW;
 
-            NW = N;     N = NE;     
-            NE = E;     W = SE;     
-            SE = S;     S = SW;
-            SW = W;     W = temp_NW;
+            NW = NE;
+            NE = SE;
+            SE = SW;
+            SW = temp;
+
+                temp = N;
+            N = E;
+            E = S;
+            S = W;
+            W = temp;
+
         }
         void swap_clkwise(){
-            char temp_NW = NW;
-            NW = W;     W = SW;
-            SW = S;     S = SE;
-            SE = E;     E = NE;
-            NE = N;     N = temp_NW;
+            char temp = NW;
+
+            NW = SW;
+            SW = SE;
+            SE = NE;
+            NE = temp;
+                temp = N;
+            N = W;
+            W = S;
+            S = E;
+            E = temp;
         }
 
         void print_face_WHOLE(char ltf_spacing_1, char rgh_spacing_1){
